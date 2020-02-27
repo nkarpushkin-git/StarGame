@@ -13,6 +13,7 @@ public abstract class Sprite extends Rect {
     protected TextureRegion[] regions;
     protected int frame;
 
+
     public Sprite(TextureRegion region) {
         if (region == null) {
             throw new RuntimeException("Не задана текстура");

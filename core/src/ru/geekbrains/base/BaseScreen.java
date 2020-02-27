@@ -20,6 +20,7 @@ public class BaseScreen implements Screen, InputProcessor {
     private Rect glBounds;
 
     private Vector2 touch;
+    private Vector2 v;
 
     private Matrix4 worldToGl;
     private Matrix3 screenToWorld;
@@ -32,6 +33,7 @@ public class BaseScreen implements Screen, InputProcessor {
         worldBounds = new Rect();
         glBounds = new Rect(0, 0, 1f, 1f);
         touch = new Vector2();
+        v = new Vector2();
         worldToGl = new Matrix4();
         screenToWorld = new Matrix3();
         Gdx.input.setInputProcessor(this);
