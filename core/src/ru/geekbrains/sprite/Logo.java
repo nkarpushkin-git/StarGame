@@ -8,19 +8,19 @@ import ru.geekbrains.base.Sprite;
 import ru.geekbrains.math.Rect;
 
 public class Logo extends Sprite {
-    private static final float speed = 0.01f;
+
+    private static final float V_LEN = 0.01f;
+
     private Vector2 touch;
     private Vector2 v;
-    private Vector2 tmp;
-
+    private Vector2 buf;
 
     public Logo(Texture region) {
         super(new TextureRegion(region));
         touch = new Vector2();
         v = new Vector2();
-        tmp = new Vector2();
+        buf = new Vector2();
     }
-
 
     @Override
     public void resize(Rect worldBounds) {
@@ -30,13 +30,13 @@ public class Logo extends Sprite {
     @Override
     public void touchDown(Vector2 touch, int pointer, int button) {
         this.touch.set(touch);
-        v.set(touch.cpy().sub(pos)).setLength(speed);
+        v.set(touch.sub(pos)).setLength(V_LEN);
     }
 
     @Override
     public void update(float delta) {
-        tmp.set(touch);
-        if (tmp.sub(pos).len() < speed) {
+        buf.set(touch);
+        if (buf.sub(pos).len() > V_LEN) {
             pos.add(v);
         } else {
             pos.set(touch);
