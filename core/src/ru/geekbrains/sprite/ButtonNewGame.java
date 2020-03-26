@@ -1,6 +1,5 @@
 package ru.geekbrains.sprite;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import ru.geekbrains.base.ScaledButton;
@@ -24,6 +23,6 @@ public class ButtonNewGame extends ScaledButton {
 
     @Override
     public void action() {
-
+        gameScreen.startNewGame();
     }
 }

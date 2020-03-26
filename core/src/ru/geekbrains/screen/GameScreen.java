@@ -164,6 +164,16 @@ public class GameScreen extends BaseScreen {
         return false;
     }
 
+    public void startNewGame () {
+        state = State.PLAYING;
+
+        mainShip.startNewGame();
+
+        bulletPool.freeAllActiveObjects();
+        enemyPool.freeAllActiveObjects();
+        explosionPool.freeAllActiveObjects();
+    }
+
     private void update(float delta) {
         for (Star star : stars) {
             star.update(delta);
