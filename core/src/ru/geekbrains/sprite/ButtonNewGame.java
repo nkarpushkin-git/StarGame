@@ -7,18 +7,18 @@ import ru.geekbrains.math.Rect;
 import ru.geekbrains.screen.GameScreen;
 
 public class ButtonNewGame extends ScaledButton {
-    private static final float PADDING = 0.05f;
 
     private GameScreen gameScreen;
 
-    public ButtonNewGame (TextureAtlas atlas, GameScreen gameScreen) {
+    public ButtonNewGame(TextureAtlas atlas, GameScreen gameScreen) {
         super(atlas.findRegion("button_new_game"));
+        this.gameScreen = gameScreen;
     }
 
     @Override
     public void resize(Rect worldBounds) {
-        setHeightProportion(0.07f);
-        setBottom(worldBounds.getBottom() + PADDING*6);
+        super.resize(worldBounds);
+        setHeightProportion(0.05f);
     }
 
     @Override
