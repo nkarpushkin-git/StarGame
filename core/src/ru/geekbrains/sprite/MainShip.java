@@ -51,6 +51,7 @@ public class MainShip extends Ship {
     public void resize(Rect worldBounds) {
         this.worldBounds = worldBounds;
         setHeightProportion(0.15f);
+//        setBottom(worldBounds.getBottom() + 0.05f);
         setBottom(worldBounds.getBottom() + 0.05f);
     }
 
