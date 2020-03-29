@@ -16,11 +16,10 @@ public class BaseScreen implements Screen, InputProcessor {
     protected SpriteBatch batch;
 
     private Rect screenBounds;
-    private Rect worldBounds;
+    protected Rect worldBounds;
     private Rect glBounds;
 
     private Vector2 touch;
-    private Vector2 v;
 
     private Matrix4 worldToGl;
     private Matrix3 screenToWorld;
@@ -33,7 +32,6 @@ public class BaseScreen implements Screen, InputProcessor {
         worldBounds = new Rect();
         glBounds = new Rect(0, 0, 1f, 1f);
         touch = new Vector2();
-        v = new Vector2();
         worldToGl = new Matrix4();
         screenToWorld = new Matrix3();
         Gdx.input.setInputProcessor(this);
@@ -132,14 +130,12 @@ public class BaseScreen implements Screen, InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        System.out.println("touchDragged screenX = " + screenX + " screenY = " + screenY);
         touch.set(screenX, screenBounds.getHeight() - screenY).mul(screenToWorld);
         touchDragged(touch, pointer);
         return false;
     }
 
     public boolean touchDragged(Vector2 touch, int pointer) {
-        System.out.println("touchDragged touchX = " + touch.x + " touchY = " + touch.y);
         return false;
     }
 
