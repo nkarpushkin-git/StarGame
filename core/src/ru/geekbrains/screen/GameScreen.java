@@ -9,11 +9,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
 import ru.geekbrains.base.BaseScreen;
+import ru.geekbrains.base.Ship;
 import ru.geekbrains.math.Rect;
 import ru.geekbrains.pool.BulletPool;
 import ru.geekbrains.pool.EnemyPool;
 import ru.geekbrains.pool.ExplosionPool;
 import ru.geekbrains.sprite.Background;
+import ru.geekbrains.sprite.Enemy;
 import ru.geekbrains.sprite.MainShip;
 import ru.geekbrains.sprite.Star;
 import ru.geekbrains.utils.EnemiesEmitter;
@@ -140,6 +142,13 @@ public class GameScreen extends BaseScreen {
 
     private void checkCollisions() {
         //TODO место для ДЗ
+        for (Enemy activeObject : enemyPool.getActiveObjects()) {
+            if (!activeObject.isOutside(mainShip)) {
+                activeObject.destroy();
+                            }
+        }
+        ;
+
     }
 
     private void freeAllDestroyed() {
